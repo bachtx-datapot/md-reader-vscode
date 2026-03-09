@@ -1,0 +1,34 @@
+version: 1
+run_id: "{run-id}"
+process: "{process-name}"
+iteration: 1
+overall_status: pending
+overall_verdict: null
+current_stage: basic_user
+current_tc: null
+stages:
+  basic_user: pending
+  tech_qa_code: pending
+  tech_qa_browser: pending
+  ux_designer: pending
+  visual_compliance: pending
+  workflow: pending
+  permission_matrix: pending
+  edge_case: pending
+  self_completion: pending
+workflow_state:
+  current_workflow: null
+  current_step: null
+  current_role: null
+permission_matrix_state:
+  current_role: null
+  current_route_index: 0
+  phase: null  # positive|negative|mutation|scope|tenant
+fix_in_progress:
+  tc_id: null
+  level: null
+  delegated_to: null
+  attempt: null
+total_fixes: 0
+total_proposals: 0
+last_updated: "{timestamp}"

@@ -1,0 +1,13 @@
+version: 1
+run_id: "{run-id}"
+process: "{process-name}"
+generated_at: "{timestamp}"
+test_cases: []
+# Each test case:
+# - id: TC-001
+#   stage: basic_user  # basic_user|tech_qa_code|tech_qa_browser|ux_designer|visual_compliance|workflow|permission_matrix|edge_case|self_completion
+#   title: "Login via UI"
+#   status: pending  # pending|pass|fail|skipped
+#   evidence: null   # path to screenshot/log
+#   fix_attempts: 0
+#   notes: ""

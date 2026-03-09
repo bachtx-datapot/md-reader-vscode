@@ -1,0 +1,31 @@
+# ClaudeKit Custom Files Manifest
+# Files listed here are PRESERVED during CK upgrades.
+# Paths relative to .claude/ — supports exact paths and dir/ patterns.
+
+# Custom agents (business pipeline)
+agents/business-engineer.md
+agents/process-analyst.md
+agents/product-spec-writer.md
+agents/story-writer.md
+
+# Agent memory (runtime state)
+agent-memory/
+
+# Custom skills
+skills/bmad-bmm-analyst/
+skills/business-analyst/
+skills/trust-me-bro/
+
+# Custom rules (have appended custom sections)
+rules/documentation-management.md
+rules/orchestration-protocol.md
+
+# Project config (never overwrite)
+.env
+.mcp.json
+settings.local.json
+projects/
+
+# This file + upgrade script
+.ck-custom
+upgrade-ck.sh

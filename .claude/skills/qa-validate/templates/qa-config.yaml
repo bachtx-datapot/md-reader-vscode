@@ -1,0 +1,70 @@
+# qa-config.yaml — test credentials for all 12 roles + cross-tenant
+# Copy to quality-reports/.qa-config.yaml and fill in values
+# NEVER commit this file — it's gitignored
+# Use sdd-generate-qa-config.sh to auto-generate from seed credentials
+accounts:
+  super_admin:
+    email: ""
+    password: ""
+    tenant: "default"
+    role: super-admin
+  admin:
+    email: ""
+    password: ""
+    tenant: "default"
+    role: admin
+  sales_manager:
+    email: ""
+    password: ""
+    tenant: "default"
+    role: sales-manager
+  coordinator:
+    email: ""
+    password: ""
+    tenant: "default"
+    role: coordinator
+  finance:
+    email: ""
+    password: ""
+    tenant: "default"
+    role: finance
+  trainer:
+    email: ""
+    password: ""
+    tenant: "default"
+    role: trainer
+  sales:
+    email: ""
+    password: ""
+    tenant: "default"
+    role: sales
+  support:
+    email: ""
+    password: ""
+    tenant: "default"
+    role: support
+  student:
+    email: ""
+    password: ""
+    tenant: "default"
+    role: student
+  corporate_contact:
+    email: ""
+    password: ""
+    tenant: "default"
+    role: corporate-contact
+  receptionist:
+    email: ""
+    password: ""
+    tenant: "default"
+    role: receptionist
+  other_tenant_user:
+    email: ""
+    password: ""
+    tenant: "other"
+    role: admin
+database:
+  url: ""  # or read from DATABASE_URL env var
+dev_server:
+  ops_url: "http://localhost:3201"
+  website_url: "http://localhost:3301"

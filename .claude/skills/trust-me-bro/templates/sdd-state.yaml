@@ -1,0 +1,17 @@
+# SDD State — copy to quality-reports/sdd-{run-id}/sdd-state.yaml
+version: 1
+run_id: "sdd-{YYMMDD}-{HHMM}"
+gate: ceo
+domain: all
+iteration: 0
+overall_status: pending  # pending | scanning | fixing | verifying | completed | awaiting_human | stale
+overall_verdict: null
+scan_count: 0
+fix_count: 0
+defer_count: 0
+remaining: 0
+last_scan: null
+last_fix: null
+last_done: null
+domains_scanned: []
+domains_remaining: [infra, mks, lxp, fin]

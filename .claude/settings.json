@@ -1,0 +1,245 @@
+{
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "allow": [
+      "Bash(fuser -k 3000/tcp 3001/tcp 3002/tcp 3003/tcp 3004/tcp 3005/tcp 4000/tcp 4001/tcp 8080/tcp 8081/tcp)",
+      "Bash(pkill -f \"turbo dev\")",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(pkill -f \"node.*dev\")",
+      "Read(//home/giangptt-dev/datapot-operations-platform-v2/**)",
+      "Bash(done)",
+      "Bash(git pull origin dev)",
+      "Bash(gh auth status)",
+      "Bash(ssh -T git@github.com)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(git config --list)",
+      "Bash(xargs -I {} bash -c 'echo \"\"=== {} ===\"\" && head -5 {}')",
+      "Bash(git diff --color=never)",
+      "Bash(git add .claude/settings.json docs/product/requirements/orders/ba-order-system-guide.md)",
+      "Bash(git fetch origin dev)",
+      "Bash(git merge origin/dev --no-edit)",
+      "Bash(git push origin giangptt-dev)",
+      "Bash(git diff HEAD~1 --stat -- apps/ops/src/modules/*/schema/*.ts apps/ops/src/modules/*/*/schema/*.ts)",
+      "Bash(git diff HEAD~1 -- apps/ops/src/modules/*/schema/*.ts apps/ops/src/modules/*/*/schema/*.ts)",
+      "Bash(pnpm dev)",
+      "Bash(fuser -k 3201/tcp)",
+      "Bash(fuser 3201/tcp)",
+      "Bash(BROWSER=none pnpm dev:ops)",
+      "Bash(git checkout giangptt-dev)",
+      "Bash(bash /home/giangptt/datapot-operations-platform-v2/scripts/setup/dev-setup.sh)",
+      "Bash(sudo systemctl start docker)",
+      "Bash(sudo systemctl status docker --no-pager)",
+      "Bash(docker info)",
+      "Bash(sudo usermod -aG docker giangptt)",
+      "Bash(sg docker -c \"bash /home/giangptt/datapot-operations-platform-v2/scripts/setup/dev-setup.sh\")",
+      "Bash(sg docker -c \"pnpm dev:ops\")",
+      "Bash(sudo lsof -i :3201)",
+      "Bash(sudo ss -tlnp)",
+      "Bash(sudo kill -9 2400700)",
+      "Bash(gh auth setup-git)",
+      "Bash(git stash drop)",
+      "Bash(python3 -c \":*)",
+      "Bash(sudo fuser -k 3201/tcp)",
+      "Bash(sudo pkill -9 -f \"next dev\")",
+      "Bash(sudo pkill -9 -f \"turbo dev\")",
+      "Bash(.claude/skills/.venv/bin/python3 -c \":*)",
+      "Bash(python3 -c \"import openpyxl; print\\(''openpyxl available''\\)\")",
+      "Bash(python3 -m venv /tmp/xlsx-venv)",
+      "Bash(/tmp/xlsx-venv/bin/pip install openpyxl -q)",
+      "Bash(npx xlsx-cli \"references/docs/Maincases checklist.xlsx\")",
+      "Bash(npx -y xlsx-cli \"references/docs/Maincases checklist.xlsx\")",
+      "Bash(node -e \":*)",
+      "Bash(npx -y xlsx@latest -e \":*)",
+      "Bash(npm install --no-save xlsx)",
+      "Read(//tmp/**)",
+      "Bash(sudo fuser -k 3211/tcp)",
+      "Bash(sudo lsof -i :3211)",
+      "Bash(libreoffice --headless --convert-to csv --outdir /tmp \"references/docs/Maincases checklist.xlsx\")",
+      "Bash(wc -l apps/ops/src/app/\\\\\\(ops\\\\\\)/ops/orders/page.tsx apps/ops/src/app/\\\\\\(ops\\\\\\)/ops/orders/[orderCode]/page.tsx apps/ops/src/app/\\\\\\(ops\\\\\\)/ops/classes/page.tsx apps/ops/src/app/\\\\\\(ops\\\\\\)/ops/classes/new/page.tsx apps/ops/src/app/\\\\\\(ops\\\\\\)/ops/enrollments/page.tsx apps/ops/src/app/\\\\\\(ops\\\\\\)/ops/enrollments/new/page.tsx apps/ops/src/app/\\\\\\(ops\\\\\\)/ops/courses/page.tsx apps/ops/src/app/\\\\\\(ops\\\\\\)/ops/courses/new/page.tsx apps/ops/src/app/\\\\\\(ops\\\\\\)/ops/trainers/page.tsx apps/ops/src/app/\\\\\\(ops\\\\\\)/ops/students/page.tsx apps/ops/src/app/\\\\\\(ops\\\\\\)/ops/billing/page.tsx apps/ops/src/app/\\\\\\(ops\\\\\\)/ops/lms/certifications/page.tsx)",
+      "Read(//home/giangppt/datapot-operations-platform-v2/apps/ops/src/modules/com/services/**)",
+      "Read(//home/giangppt/datapot-operations-platform-v2/apps/ops/src/modules/com/seed/**)",
+      "Read(//home/giangppt/datapot-operations-platform-v2/apps/ops/src/**)",
+      "Bash(node /home/giangptt/datapot-operations-platform-v2/.claude/scripts/set-active-plan.cjs /home/giangptt/datapot-operations-platform-v2/plans/260303-1023-maincases-mvp-sprint)",
+      "mcp__vibe-kanban__list_org_members",
+      "mcp__vibe-kanban__list_organizations",
+      "mcp__vibe-kanban__list_issues",
+      "Read(//home/giangptt/datapot-operations-platform-v2/**)",
+      "Bash(kill -9 2625170)",
+      "Bash(pkill -9 -f \"next dev.*3211\")",
+      "Bash(xargs kill -9)",
+      "Bash(lsof -ti:3211)",
+      "Bash(kill -9 2680125)",
+      "Bash(git stash)",
+      "Bash(git stash pop)",
+      "Bash(pip install openpyxl -q)",
+      "Bash(psql $DATABASE_URL -c \"SELECT id, type, payload, status, created_at FROM outbox WHERE id = ''f085d015-0c92-41fb-b494-47f5be7ea04c'';\")",
+      "Bash(pnpm --filter storybook dev)",
+      "Bash(pgrep -f \"next dev\")",
+      "Bash(psql \"postgres://app:change-me-in-production@localhost:5432/datapot_ops\" -c \":*)",
+      "Bash(pnpm tsc --noEmit)",
+      "Bash(pnpm dev:ops)",
+      "Bash(node .claude/scripts/set-active-plan.cjs plans/260304-0929-payment-pipeline-fix)",
+      "Bash(curl -sf http://localhost:320)",
+      "Bash(npx playwright --version)",
+      "Bash(lsof -i :3201)",
+      "Bash(ss -tlnp)",
+      "Bash(lsof -ti:3201)",
+      "Bash(git add apps/ops/src/modules/orders/services/checkout-guest.ts apps/ops/src/modules/orders/types/order-types.ts apps/ops/src/modules/finance/billing/services/payment-request-service.ts apps/ops/src/app/\\\\\\(ops\\\\\\)/ops/orders/_components/create-order-dialog.tsx \"apps/ops/src/app/\\(ops\\)/ops/orders/_components/installment-schedule-editor.tsx\" apps/ops/src/modules/lms/events/fulfillment-event-handlers.ts apps/ops/src/modules/lms/services/fulfillment-service.ts \"apps/ops/src/modules/lms/services/fulfillment-per-request-service.ts\" apps/ops/src/modules/orders/routers/order-router.ts apps/ops/src/modules/orders/services/ord-payment-webhook-handler.ts \"apps/ops/src/app/\\(ops\\)/ops/orders/[orderCode]/_components/order-installment-card.tsx\" \"apps/ops/src/app/\\(ops\\)/ops/orders/[orderCode]/_components/order-detail-client.tsx\")",
+      "Bash(gh issue list --state all --limit 20 --json number,title,state,labels,milestone,assignees)",
+      "Bash(pnpm --filter ops dev)",
+      "Bash(PORT=3211 pnpm --filter ops dev)",
+      "Bash(fuser -k 3211/tcp)",
+      "Bash(fuser 3211/tcp)",
+      "Bash(echo \"port clear: $?\")",
+      "Bash(gh repo view --json nameWithOwner -q '.nameWithOwner')",
+      "Bash(gh issue list --limit 5 --json number,title,labels -q '.[] | \"\"\\\\\\(.number\\) | \\\\\\(.title\\) | \\\\\\(.labels | map\\(.name\\) | join\\(\"\",\"\"\\)\\)\"\"')",
+      "Bash(gh label list --limit 20 -q '.[] | .name')",
+      "Bash(python .claude/scripts/generate_catalogs.py --skills)",
+      "Bash(pnpm drizzle-kit generate)",
+      "Bash(pnpm drizzle-kit migrate)",
+      "Bash(PORT=3211 pnpm dev:ops)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(git status -u)",
+      "Bash(.claude/skills/.venv/bin/python3 .claude/scripts/generate_catalogs.py --skills)",
+      "Read(//home/giangppt/**)",
+      "Read(//home/giangpt/datapot-operations-platform-v2/apps/ops/src/modules/finance/billing/schema/**)",
+      "Bash(grep -E \"\\\\.\\(ts|tsx\\)$\")",
+      "Bash(python3 .claude/scripts/generate_catalogs.py --skills)",
+      "Bash(sudo apt-get install -y antiword)",
+      "Bash(pip install python-docx)",
+      "Bash(psql \"postgres://app:change-me-in-production@localhost:5432/datapot_ops\" -c \"SELECT id, status, invoice_number, issued_at, updated_at FROM fin_invoice WHERE id = ''aa3132b0-dcbe-4e2b-b7db-a14fb2bf8ecf'';\")",
+      "Bash(gh issue view 83 --repo DatapotAnalytics/datapot-operations-platform-v2)",
+      "Bash(source .env)",
+      "Bash(psql \"$DATABASE_URL\" -c \"SELECT id, invoice_number, status, issued_at, void_reason, source_type, source_id, created_at, updated_at FROM fin_invoice WHERE id = ''2bc31de3-932b-408c-a09f-183ddb0d57d1''\")",
+      "Bash(git add apps/ops/src/modules/finance/billing/events/invoice-draft-consumer.ts apps/ops/src/modules/finance/billing/events/invoice-generate-consumer.ts apps/ops/src/modules/finance/billing/events/payment-request-invoice-gate-consumer.ts apps/ops/src/modules/finance/billing/jobs/sinvoice-status-sync-job.ts apps/ops/src/modules/finance/billing/router.ts apps/ops/src/modules/finance/billing/schema/enums.ts apps/ops/src/modules/finance/billing/services/einvoice/einvoice-adapter-interface.ts apps/ops/src/modules/finance/billing/services/einvoice/viettel-sinvoice-adapter.ts apps/ops/src/modules/finance/billing/services/invoice-service.ts apps/ops/src/shared/events/catalog/fin-event-schemas.ts)",
+      "Bash(grep -E '\"\"push\"\"' package.json)",
+      "Bash(sudo lsof -i :3211 -sTCP:LISTEN)",
+      "Bash(lsof -i :3211 -t)",
+      "Bash(kill 739940)",
+      "Bash(xargs -r kill -9)",
+      "Bash(pnpm --filter ops dev --port 3211)",
+      "Bash(git add .claude/settings.json apps/ops/drizzle/migrations/0005_add_env_fallback_key.sql apps/ops/drizzle/migrations/meta/_journal.json apps/ops/src/app/api/webhooks/payment/sepay/route.ts apps/ops/src/modules/cms/events/lms-class-handler.ts apps/ops/src/modules/cms/events/lms-lp-offering-handler.ts apps/ops/src/modules/finance/billing/events/invoice-draft-consumer.ts apps/ops/src/modules/finance/billing/events/invoice-generate-consumer.ts apps/ops/src/modules/orders/events/order-event-handlers.ts)",
+      "Bash(wc -l /home/giangptt/datapot-operations-platform-v2/apps/ops/src/modules/orders/schema/*.ts)",
+      "Bash(ls -la /home/giangptt/datapot-operations-platform-v2/apps/ops/src/app/\\\\\\(ops\\\\\\)/ops/crm/leads/)",
+      "Read(//home/giangpt/datapot-operations-platform-v2/apps/ops/src/modules/crm/services/**)",
+      "Read(//home/giangpt/datapot-operations-platform-v2/apps/ops/src/modules/crm/schema/**)",
+      "Bash(psql \"$DATABASE_URL\" -c \"SELECT id, event_type, status, payload, created_at, error FROM outbox_events WHERE id = ''0e28251c-82a4-4dfe-891b-7d81b5171f66'' LIMIT 1;\")",
+      "Bash(git add apps/ops/src/modules/finance/billing/events/invoice-draft-consumer.ts apps/ops/src/modules/finance/billing/events/invoice-generate-consumer.ts apps/ops/src/modules/finance/billing/services/einvoice/viettel-sinvoice-adapter.ts apps/ops/src/modules/finance/billing/services/invoice-service.ts apps/ops/src/modules/finance/billing/services/payment-service.ts apps/ops/src/modules/orders/events/order-event-handlers.ts apps/ops/src/modules/orders/services/ord-payment-webhook-handler.ts)"
+    ],
+    "additionalDirectories": [
+      "/home/giangptt-dev/datapot-operations-platform-v2/apps/ops/src/app/(ops)/ops/classes/_components",
+      "/home/giangptt-dev/datapot-operations-platform-v2/apps/ops/src/app/(ops)/ops/reports/_components",
+      "/tmp",
+      "/home/giangptt/datapot-operations-platform-v2/plans/260303-1023-maincases-mvp-sprint",
+      "/home/giangptt/datapot-operations-platform-v2/apps/ops/tests/e2e/lms/flows",
+      "/home/giangptt/datapot-operations-platform-v2/plans/reports",
+      "/home/giangptt/datapot-operations-platform-v2/apps/ops/.next/dev",
+      "/home/giangptt/datapot-operations-platform-v2/plans",
+      "/home/giangptt/datapot-operations-platform-v2/plans/260306-1041-email-engine-hardening"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/session-init.cjs"
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/subagent-init.cjs"
+          },
+          {
+            "type": "command",
+            "command": "node .claude/hooks/team-context-inject.cjs"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "Plan",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/cook-after-plan-reminder.cjs"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/dev-rules-reminder.cjs"
+          },
+          {
+            "type": "command",
+            "command": "node .claude/hooks/usage-context-awareness.cjs",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/descriptive-name.cjs"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|Glob|Grep|Read|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/scout-block.cjs"
+          },
+          {
+            "type": "command",
+            "command": "node .claude/hooks/privacy-block.cjs"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/post-edit-simplify-reminder.cjs"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|Edit|Write|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/usage-context-awareness.cjs",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "node .claude/statusline.cjs",
+    "padding": 0
+  }
+}

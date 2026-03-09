@@ -1,16 +1,16 @@
-const { merge } = require('webpack-merge')
-const commentConfig = require('./webpack.common.js')
 const { ESBuildMinifyPlugin } = require('esbuild-loader')
+const configs = require('./webpack.common.js')
 
-module.exports = merge(commentConfig, {
+module.exports = configs.map(config => ({
+  ...config,
   mode: 'production',
   optimization: {
     minimize: true,
     minimizer: [
       new ESBuildMinifyPlugin({
-        target: 'chrome80',
+        target: 'es2021',
         css: true,
       }),
     ],
   },
-})
+}))

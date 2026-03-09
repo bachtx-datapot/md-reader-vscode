@@ -1,6 +1,3 @@
-import imageViewerPlugin from './img-viewer'
-import blockCopyPlugin from './block-copy'
-import { usePlugin } from '@/core/plugin'
-export { initPlugins } from '@/core/plugin'
-
-usePlugin([blockCopyPlugin, imageViewerPlugin])
+// Server-side markdown-it plugins only (no DOM deps)
+// Browser plugins (block-copy, img-viewer) moved to src/client/plugins/
+export { default as mAlert } from './alert'

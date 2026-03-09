@@ -1,0 +1,17 @@
+src/
+build/
+scripts/
+plans/
+docs/
+.claude/
+.github/
+.husky/
+node_modules/
+*.md
+*.less
+*.map
+.prettierrc
+.gitignore
+.eslintrc*
+tsconfig*.json
+pnpm-lock.yaml

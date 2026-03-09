@@ -1,15 +1,57 @@
 const { resolve } = require('path')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const FriendlyErrors = require('@nuxt/friendly-errors-webpack-plugin')
-const SveltePreprocess = require('svelte-preprocess')
 
-module.exports = {
+// Extension host bundle (Node.js target)
+const extensionConfig = {
+  target: 'node',
   entry: {
-    content: resolve(__dirname, '../src/main.ts'),
-    background: resolve(__dirname, '../src/background.ts'),
-    popup: resolve(__dirname, '../src/popup/index.ts'),
+    extension: resolve(__dirname, '../src/extension.ts'),
+  },
+  output: {
+    filename: 'js/[name].js',
+    path: resolve(__dirname, '../extension'),
+    publicPath: './',
+    libraryTarget: 'commonjs2',
+  },
+  externals: {
+    vscode: 'commonjs vscode',
+    bufferutil: 'commonjs bufferutil',
+    'utf-8-validate': 'commonjs utf-8-validate',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|ts)$/,
+        use: {
+          loader: 'esbuild-loader',
+          options: { loader: 'ts', target: 'es2021' },
+        },
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.svg$/,
+        use: 'svg-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.ts', '.js', '.json'],
+    alias: {
+      '@': resolve(__dirname, '../src'),
+    },
+  },
+  stats: 'errors-only',
+  plugins: [new FriendlyErrors()],
+}
+
+// Client bundle (browser target)
+const clientConfig = {
+  target: 'web',
+  entry: {
+    client: resolve(__dirname, '../src/client/index.ts'),
   },
   output: {
     filename: 'js/[name].js',
@@ -22,18 +64,9 @@ module.exports = {
         test: /\.(js|ts)$/,
         use: {
           loader: 'esbuild-loader',
-          options: { loader: 'ts', target: 'esnext' },
+          options: { loader: 'ts', target: 'es2021' },
         },
         exclude: /node_modules/,
-      },
-      {
-        test: /\.svelte$/,
-        use: {
-          loader: 'svelte-loader',
-          options: {
-            preprocess: SveltePreprocess.typescript(),
-          },
-        },
       },
       {
         test: /\.(css|less)$/,
@@ -41,9 +74,7 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: {
-              esModule: false,
-            },
+            options: { esModule: false },
           },
           'less-loader',
         ],
@@ -54,17 +85,16 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.woff2$/,
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
         type: 'asset/resource',
         generator: {
-          outputPath: 'fonts',
-          publicPath: 'chrome-extension://__MSG_@@extension_id__/fonts/',
+          filename: 'fonts/[name][ext]',
         },
       },
     ],
   },
   resolve: {
-    extensions: ['.ts', '.js', '.svelte', '.json', '.less'],
+    extensions: ['.ts', '.js', '.json', '.less'],
     alias: {
       '@': resolve(__dirname, '../src'),
     },
@@ -72,28 +102,22 @@ module.exports = {
   stats: 'errors-only',
   plugins: [
     new FriendlyErrors(),
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
     }),
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: resolve(__dirname, '../src/manifest.json'),
-        },
-        {
-          from: resolve(__dirname, '../src/_locales'),
-          to: '_locales',
-        },
-        {
           from: resolve(__dirname, '../src/images'),
           to: 'images',
         },
         {
-          from: resolve(__dirname, '../src/popup/index.html'),
-          to: 'popup.html',
+          from: resolve(__dirname, '../src/template/preview.html'),
+          to: 'template/preview.html',
         },
       ],
     }),
   ],
 }
+
+module.exports = [extensionConfig, clientConfig]

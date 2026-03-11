@@ -4,7 +4,8 @@
 
 # JS/TS
 node_modules
-dist
+# dist (temporarily disabled)
+# dist
 build
 .nuxt
 
@@ -26,3 +27,5 @@ coverage
 !.env.*
 !node_modules/better-auth
 !.next/dev/lock
+!build
+!/tmp/md-reader-ext

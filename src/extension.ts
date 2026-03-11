@@ -64,8 +64,17 @@ export async function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand('md-reader.previewBrowser', () =>
       openPreview(context, 'browser'),
     ),
+    vscode.commands.registerCommand('md-reader.previewTab', () =>
+      openPreview(context, 'tab'),
+    ),
     vscode.commands.registerCommand('md-reader.previewSidePanel', () =>
       openPreview(context, 'side'),
+    ),
+    vscode.commands.registerCommand('md-reader.changeDefaultMode', () =>
+      vscode.commands.executeCommand(
+        'workbench.action.openSettings',
+        'md-reader.previewMode',
+      ),
     ),
     vscode.commands.registerCommand('md-reader.settings', () =>
       openSettingsPanel(context, getConfig),

@@ -35,7 +35,11 @@
     "commands": [
       {
         "command": "md-reader.preview",
-        "title": "MD Reader: Preview"
+        "title": "MD Reader: Preview",
+        "icon": {
+          "light": "extension/images/icon-preview-light.svg",
+          "dark": "extension/images/icon-preview-dark.svg"
+        }
       },
       {
         "command": "md-reader.previewBrowser",
@@ -46,10 +50,49 @@
         "title": "MD Reader: Preview in Side Panel"
       },
       {
+        "command": "md-reader.previewTab",
+        "title": "MD Reader: Preview in Tab"
+      },
+      {
+        "command": "md-reader.changeDefaultMode",
+        "title": "MD Reader: Change Default Preview Mode"
+      },
+      {
         "command": "md-reader.settings",
         "title": "MD Reader: Settings"
       }
     ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "md-reader.preview",
+          "when": "editorLangId == markdown",
+          "group": "navigation"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "md-reader.previewBrowser",
+          "when": "editorLangId == markdown",
+          "group": "md-reader@1"
+        },
+        {
+          "command": "md-reader.previewTab",
+          "when": "editorLangId == markdown",
+          "group": "md-reader@2"
+        },
+        {
+          "command": "md-reader.previewSidePanel",
+          "when": "editorLangId == markdown",
+          "group": "md-reader@3"
+        },
+        {
+          "command": "md-reader.changeDefaultMode",
+          "when": "editorLangId == markdown",
+          "group": "md-reader-settings@4"
+        }
+      ]
+    },
     "configuration": {
       "title": "MD Reader",
       "properties": {
@@ -119,14 +162,7 @@
           "description": "HTTP server port (0 = auto)"
         }
       }
-    },
-    "keybindings": [
-      {
-        "command": "md-reader.preview",
-        "key": "ctrl+shift+v",
-        "when": "editorLangId == markdown"
-      }
-    ]
+    }
   },
   "scripts": {
     "dev": "webpack --config ./build/webpack.dev.js",

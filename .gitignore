@@ -1,0 +1,55 @@
+# Build output
+dist/
+extension/
+*.vsix
+
+# Dependencies
+node_modules/
+
+# IDE
+.vscode/settings.json
+.idea/
+.fleet/
+
+# OS
+.DS_Store
+
+# Logs
+**/*logs*/
+npm-debug.log*
+yarn-debug.log*
+.pnpm-debug.log*
+
+# Env files
+.env*
+!.env.example
+
+# TypeScript
+*.tsbuildinfo
+
+# Package manager lockfiles (pnpm-lock.yaml is tracked)
+package-lock.json
+yarn.lock
+
+# Chrome extension artifacts
+extension.crx
+extension.pem
+*.pem
+*.zip
+
+# Claude Code / AI tooling
+.claude/
+CLAUDE.md
+prompt.md
+ck.md
+
+# Plans & reports (local only)
+plans/**/*
+!plans/templates/
+!plans/templates/**
+
+# Misc
+repomix-output.xml
+screenshots/
+coverage/
+test-results/

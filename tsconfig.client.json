@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "baseUrl": ".",
+    "allowJs": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["ES2021", "DOM"],
+    "types": [],
+    "strict": false,
+    "skipLibCheck": true,
+    "outDir": "./extension",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "src/client/**/*",
+    "src/core/event.ts",
+    "src/core/plugin.ts",
+    "src/config/**/*"
+  ]
+}

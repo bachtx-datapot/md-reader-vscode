@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="no-referrer" />
+    <title>{{title}} - MD Reader</title>
+    <link rel="stylesheet" href="/static/css/client.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+    />
+  </head>
+  <body class="md-reader" data-md-reader-theme="{{theme}}">
+    <div class="md-reader__button-wrap">
+      <button
+        class="md-reader__btn md-reader__btn--side-expand"
+        title="Expand side"
+      >
+        <svg viewBox="0 0 1024 1024" fill="currentColor">
+          <path
+            d="M256 128v768h85.333V128H256zM426.667 469.333H768v85.334H426.667l166.186 166.187-60.353 60.34L298.667 547.327v-70.654L532.5 242.84l60.353 60.34-166.186 166.153z"
+          />
+        </svg>
+      </button>
+      <div class="mdr-more">
+        <button class="md-reader__btn mdr-more__trigger" title="More options">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </button>
+        <div class="mdr-more__menu" style="display: none">
+          <button class="mdr-more__item" data-action="toggle-raw">
+            Toggle Raw
+          </button>
+          <button class="mdr-more__item" data-action="toggle-fullscreen">
+            Toggle Fullscreen
+          </button>
+          <button class="mdr-more__item" data-action="print">Print</button>
+          <hr class="mdr-more__divider" />
+          <button class="mdr-more__item" data-action="settings">
+            Settings
+          </button>
+        </div>
+      </div>
+      <button
+        class="md-reader__btn md-reader__btn--go-top"
+        title="Go top"
+        style="display: none"
+      >
+        <svg viewBox="0 0 1024 1024" fill="currentColor">
+          <path
+            d="M517.12 238.933l339.627 339.627-60.16 60.16L517.12 359.253 237.653 638.72l-60.16-60.16L517.12 238.933z"
+          />
+        </svg>
+      </button>
+    </div>
+    <main class="md-reader__body">
+      <article class="md-reader__markdown-content {{centered}}">
+        {{content}}
+      </article>
+    </main>
+    <aside class="mdr-side">
+      <div class="mdr-side__head">
+        <div class="mdr-side__head-spacer"></div>
+        <button class="mdr-button mdr-side__search-btn" title="Search">
+          <svg viewBox="0 0 24 24" width="1.2em" height="1.2em">
+            <g fill="none" fill-rule="evenodd">
+              <path
+                d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"
+              ></path>
+              <path
+                fill="currentColor"
+                d="M10.5 2a8.5 8.5 0 1 0 5.262 15.176l3.652 3.652a1 1 0 0 0 1.414-1.414l-3.652-3.652A8.5 8.5 0 0 0 10.5 2M4 10.5a6.5 6.5 0 1 1 13 0a6.5 6.5 0 0 1-13 0"
+              ></path>
+            </g>
+          </svg>
+        </button>
+        <button class="mdr-button mdr-side__collapse-btn" title="Collapse All">
+          <svg viewBox="0 0 48 48" width="1.2em" height="1.2em">
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="4"
+              d="M41.5 10h-6m-8-4v8m0-4h-22m8 14h-8m16-4v8m22-4h-22m20 14h-6m-8-4v8m0-4h-22"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <div class="mdr-side__search">
+        <input
+          class="mdr-side__filter-input"
+          autofocus
+          placeholder="Filter"
+          type="text"
+          spellcheck="false"
+        />
+      </div>
+      <div class="mdr-side__content">
+        <ul class="mdr-side__tree">
+          {{toc}}
+        </ul>
+      </div>
+    </aside>
+    <script id="md-reader-config" type="application/json">
+      {{config}}
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"
+      defer
+    ></script>
+    <script src="/static/js/client.js" defer></script>
+  </body>
+</html>

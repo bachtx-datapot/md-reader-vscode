@@ -1,0 +1,225 @@
+{
+  "name": "md-reader",
+  "displayName": "MD Reader",
+  "version": "3.0.0",
+  "publisher": "md-reader",
+  "author": "Bener",
+  "license": "MIT",
+  "description": "A markdown reader extension for VSCode with browser preview",
+  "homepage": "https://md-reader.github.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Heroor/md-reader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Heroor/md-reader/issues"
+  },
+  "keywords": [
+    "md-reader",
+    "markdown",
+    "markdown reader",
+    "vscode extension"
+  ],
+  "engines": {
+    "vscode": "^1.85.0",
+    "node": ">=18.0.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./extension/js/extension.js",
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "md-reader.preview",
+        "title": "MD Reader: Preview",
+        "icon": {
+          "light": "extension/images/icon-preview-light.svg",
+          "dark": "extension/images/icon-preview-dark.svg"
+        }
+      },
+      {
+        "command": "md-reader.previewBrowser",
+        "title": "MD Reader: Preview in Browser"
+      },
+      {
+        "command": "md-reader.previewSidePanel",
+        "title": "MD Reader: Preview in Side Panel"
+      },
+      {
+        "command": "md-reader.previewTab",
+        "title": "MD Reader: Preview in Tab"
+      },
+      {
+        "command": "md-reader.changeDefaultMode",
+        "title": "MD Reader: Change Default Preview Mode"
+      },
+      {
+        "command": "md-reader.settings",
+        "title": "MD Reader: Settings"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "md-reader.preview",
+          "when": "editorLangId == markdown",
+          "group": "navigation"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "md-reader.previewBrowser",
+          "when": "editorLangId == markdown",
+          "group": "md-reader@1"
+        },
+        {
+          "command": "md-reader.previewTab",
+          "when": "editorLangId == markdown",
+          "group": "md-reader@2"
+        },
+        {
+          "command": "md-reader.previewSidePanel",
+          "when": "editorLangId == markdown",
+          "group": "md-reader@3"
+        },
+        {
+          "command": "md-reader.changeDefaultMode",
+          "when": "editorLangId == markdown",
+          "group": "md-reader-settings@4"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "MD Reader",
+      "properties": {
+        "md-reader.previewMode": {
+          "type": "string",
+          "default": "browser",
+          "enum": [
+            "browser",
+            "tab",
+            "side"
+          ],
+          "description": "Default preview mode"
+        },
+        "md-reader.theme": {
+          "type": "string",
+          "default": "auto",
+          "enum": [
+            "auto",
+            "follow-vscode",
+            "light",
+            "dark",
+            "github",
+            "wechat",
+            "profile"
+          ],
+          "enumDescriptions": [
+            "Follow browser's color scheme preference",
+            "Follow VSCode's current theme (light/dark)",
+            "Always light",
+            "Always dark",
+            "GitHub style",
+            "WeChat style",
+            "Profile style"
+          ],
+          "description": "Preview theme (independent from VSCode theme)"
+        },
+        "md-reader.centered": {
+          "type": "boolean",
+          "default": true,
+          "description": "Centered layout for content"
+        },
+        "md-reader.plugins": {
+          "type": "array",
+          "default": [
+            "Emoji",
+            "Sup",
+            "Sub",
+            "TOC",
+            "Ins",
+            "Mark",
+            "Katex",
+            "Mermaid",
+            "Abbr",
+            "Deflist",
+            "Footnote",
+            "TaskLists",
+            "Alert"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "description": "Enabled markdown-it plugins"
+        },
+        "md-reader.port": {
+          "type": "number",
+          "default": 0,
+          "description": "HTTP server port (0 = auto)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "dev": "webpack --config ./build/webpack.dev.js",
+    "prebuild": "rm -rf extension",
+    "build": "webpack --config ./build/webpack.prod.js",
+    "package": "pnpm build && vsce package --no-dependencies",
+    "lint": "prettier --write --ignore-unknown",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@nuxt/friendly-errors-webpack-plugin": "^2.5.2",
+    "@types/markdown-it": "^12.2.3",
+    "@types/node": "^18.7.14",
+    "@types/vscode": "^1.85.0",
+    "@types/ws": "^8.5.10",
+    "@vscode/vsce": "^2.22.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.1",
+    "esbuild-loader": "^2.20.0",
+    "husky": "^8.0.1",
+    "less": "^4.1.3",
+    "less-loader": "^11.0.0",
+    "lint-staged": "^13.0.3",
+    "mini-css-extract-plugin": "^2.6.1",
+    "prettier": "^2.7.1",
+    "svg-loader": "^0.0.2",
+    "typescript": "^4.8.2",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "@md-reader/markdown-it-mermaid": "^0.5.1",
+    "@md-reader/theme": "1.0.23-patch.1",
+    "@mdit/plugin-alert": "^0.22.1",
+    "@traptitech/markdown-it-katex": "^3.6.0",
+    "highlight.js": "^11.6.0",
+    "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1",
+    "markdown-it": "^13.0.1",
+    "markdown-it-abbr": "^1.0.4",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-container": "^3.0.0",
+    "markdown-it-deflist": "^2.1.0",
+    "markdown-it-emoji": "^2.0.2",
+    "markdown-it-footnote": "^3.0.3",
+    "markdown-it-ins": "^3.0.1",
+    "markdown-it-mark": "^3.0.1",
+    "markdown-it-multimd-table": "^4.2.0",
+    "markdown-it-sub": "^1.0.0",
+    "markdown-it-sup": "^1.0.0",
+    "markdown-it-table-of-contents": "^0.6.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "ws": "^8.16.0"
+  },
+  "lint-staged": {
+    "**/*": "npm run lint"
+  }
+}
